@@ -1,0 +1,27 @@
+---
+title: Home
+published: true
+---
+!!!
+%html{lang: "en"}
+  %head
+    %meta{charset: "utf-8"}
+    %title {{ page.title }} | {{ site.name }}
+    %meta{name: "keywords", value: "{{ site.meta_keywords }}"}
+    %meta{name: "description", value: "{{ site.meta_description }}"}
+    {{ 'styles.css' | stylesheet_tag }}
+  %body
+    %div#logo
+      %img{src: "{{ 'logo.png' | theme_image_url }}", alt: "Tip of the Hats"}
+    %nav#main-nav
+      %a{href: "/"} Home
+      %a{href: "/foo"} Foo
+    %div#content
+      %h1 {{ page.title }}
+      {% block 'main' %}
+      %p
+        {% editable_text "welcome_message" %}
+        Welcome to Tip of the Hats.
+        {% endeditable_text %}
+
+      {% endblock %}
